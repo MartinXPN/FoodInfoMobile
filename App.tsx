@@ -10,6 +10,8 @@
 
 import React, {Component} from 'react';
 import {Platform, StatusBar, StyleSheet, Text, View} from 'react-native';
+import SplashScreen from 'react-native-splash-screen';
+
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -20,6 +22,11 @@ const instructions = Platform.select({
 
 interface Props {}
 export default class App extends Component<Props> {
+
+  componentDidMount(): void {
+    SplashScreen.hide();
+  }
+
   render() {
     return (
       <View style={styles.container}>

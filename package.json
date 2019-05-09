@@ -7,8 +7,10 @@
     "test": "jest"
   },
   "dependencies": {
+    "n": "^4.0.0",
+    "npm": "^6.9.0",
     "react": "16.8.3",
-    "react-native": "0.59.4",
+    "react-native": "^0.59.8",
     "react-native-splash-screen": "^3.2.0"
   },
   "devDependencies": {
@@ -21,7 +23,7 @@
     "babel-jest": "^24.7.1",
     "jest": "^24.7.1",
     "metro-react-native-babel-preset": "^0.53.1",
-    "react-test-renderer": "16.8.3",
+    "react-test-renderer": "^16.8.6",
     "typescript": "^3.4.3"
   },
   "jest": {
