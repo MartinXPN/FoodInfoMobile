@@ -4,32 +4,17 @@ import * as React from "react";
 
 // Calling the following function will open the FB login dialogue:
 export async function facebookLogin() {
-    try {
-        const result = await LoginManager.logInWithReadPermissions(['public_profile', 'email']);
+    const result = await LoginManager.logInWithReadPermissions(['public_profile', 'email']);
 
-        if (result.isCancelled) {
-            // handle this however suites the flow of your app
-            throw new Error('User cancelled request');
-        }
+    if (result.isCancelled)
+        throw new Error('User cancelled request');
 
-        console.log(`Login success with permissions: ${result.grantedPermissions.toString()}`);
+    const data = await AccessToken.getCurrentAccessToken();
+    if (!data)
+        throw new Error('Something went wrong obtaining the users access token');
 
-        // get the access token
-        const data = await AccessToken.getCurrentAccessToken();
-
-        if (!data) {
-            // handle this however suites the flow of your app
-            throw new Error('Something went wrong obtaining the users access token');
-        }
-
-        // create a new firebase credential with the token
-        const credential = firebase.auth.FacebookAuthProvider.credential(data.accessToken);
-
-        // login with credential
-        const firebaseUserCredential = await firebase.auth().signInWithCredential(credential);
-
-        console.warn(JSON.stringify(firebaseUserCredential.user.toJSON()))
-    } catch (e) {
-        console.error(e);
-    }
+    // create a new firebase credential with the token
+    const credential = firebase.auth.FacebookAuthProvider.credential(data.accessToken);
+    const firebaseUserCredential = await firebase.auth().signInWithCredential(credential);
+    return firebaseUserCredential.user;
 }

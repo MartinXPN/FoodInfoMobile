@@ -9,10 +9,12 @@
  */
 
 import React, {Component} from 'react';
-import {Platform, StatusBar, StyleSheet, Text, View} from 'react-native';
+import {Button, Platform, StatusBar, StyleSheet, Text, View} from 'react-native';
 import SplashScreen from 'react-native-splash-screen';
 import {NavigationScreenProp} from "react-navigation";
-import AppContainer from "./navigation/AppNavigator";
+import Login from "./auth/Login";
+// @ts-ignore
+import firebase, {User} from "react-native-firebase";
 
 
 const instructions = Platform.select({
@@ -23,26 +25,64 @@ const instructions = Platform.select({
 });
 
 interface Props {
-    navigation: NavigationScreenProp<any,any>
+    navigation?: NavigationScreenProp<any, any>;
 }
 
-export default class App extends Component<Props> {
+interface State {
+    currentUser?: User;
+    unsubscribe?: () => void;
+}
+
+export default class App extends Component<Props, State> {
+
+    state = {
+        currentUser: undefined,
+        unsubscribe: undefined,
+    };
+
 
     componentDidMount(): void {
         SplashScreen.hide();
         console.log(typeof this.props.navigation);
-        this.props.navigation.navigate('Login');
+        // this.props.navigation.navigate('Login');
+
+        const unsubscribe = firebase.auth().onAuthStateChanged((user) => {
+            this.setState({currentUser: user});
+        });
+
+        this.setState({unsubscribe: unsubscribe});
     }
 
+
+    componentWillUnmount(): void {
+        if (this.state.unsubscribe) {
+            // @ts-ignore
+            this.state.unsubscribe();
+        }
+    }
+
+    signOut = async () => {
+        await firebase.auth().signOut();
+    };
+
     render() {
+        if (this.state.currentUser)
+            return (
+                <View style={styles.container}>
+                    <StatusBar barStyle="light-content" backgroundColor="#4F6D7A"/>
+                    <Text style={styles.welcome}>Welcome to React Native!</Text>
+                    <Text style={styles.instructions}>To get started, edit App.tsx</Text>
+                    <Text style={styles.instructions}>{instructions}</Text>
+                    <Button title={'Sign Out'} onPress={this.signOut}/>
+                </View>
+            );
+
         return (
-            <AppContainer />
-            // <View style={styles.container}>
-            //     <StatusBar barStyle="light-content" backgroundColor="#4F6D7A"/>
-            //     <Text style={styles.welcome}>Welcome to React Native!</Text>
-            //     <Text style={styles.instructions}>To get started, edit App.tsx</Text>
-            //     <Text style={styles.instructions}>{instructions}</Text>
-            // </View>
+            // <AppContainer />
+            <View style={styles.container}>
+                <StatusBar barStyle="light-content" backgroundColor="#4F6D7A"/>
+                <Login/>
+            </View>
         );
     }
 }
