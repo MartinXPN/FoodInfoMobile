@@ -2,6 +2,12 @@
 #
 .DS_Store
 
+# Firebase
+**/google-services.json
+
+# Pods
+**/Pods/
+
 # Xcode
 #
 build/

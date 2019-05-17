@@ -8,10 +8,16 @@
   },
   "dependencies": {
     "n": "^4.0.0",
+    "native-base": "^2.12.1",
     "npm": "^6.9.0",
     "react": "16.8.3",
     "react-native": "^0.59.8",
-    "react-native-splash-screen": "^3.2.0"
+    "react-native-fbsdk": "^0.8.0",
+    "react-native-firebase": "^5.3.1",
+    "react-native-gesture-handler": "^1.2.1",
+    "react-native-google-signin": "^2.0.0",
+    "react-native-splash-screen": "^3.2.0",
+    "react-navigation": "^3.9.1"
   },
   "devDependencies": {
     "@babel/core": "^7.4.3",
@@ -19,6 +25,7 @@
     "@types/jest": "^24.0.11",
     "@types/react": "^16.8.13",
     "@types/react-native": "^0.57.43",
+    "@types/react-native-fbsdk": "^0.6.3",
     "@types/react-test-renderer": "^16.8.1",
     "babel-jest": "^24.7.1",
     "jest": "^24.7.1",
