@@ -10,12 +10,32 @@
 #import <React/RCTBridge.h>
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
+#import <Firebase.h>
 #import "RNSplashScreen.h"
+#import <RNGoogleSignin/RNGoogleSignin.h>
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
 
 @implementation AppDelegate
 
+
+- (BOOL)application:(UIApplication *)application openURL:(nonnull NSURL *)url options:(nonnull NSDictionary<NSString *,id> *)options {
+  
+  BOOL handledFB = [[FBSDKApplicationDelegate sharedInstance] application:application
+                                                                  openURL:url
+                                                        sourceApplication:options[UIApplicationOpenURLOptionsSourceApplicationKey]
+                                                               annotation:options[UIApplicationOpenURLOptionsAnnotationKey]
+                    ];
+  
+  BOOL handleGoogle = [RNGoogleSignin application:application
+                                         openURL:url
+                               sourceApplication:options[UIApplicationOpenURLOptionsSourceApplicationKey]
+                                      annotation:options[UIApplicationOpenURLOptionsAnnotationKey]];
+   return handledFB || handleGoogle;
+}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+  [FIRApp configure];
   RCTBridge *bridge = [[RCTBridge alloc] initWithDelegate:self launchOptions:launchOptions];
   RCTRootView *rootView = [[RCTRootView alloc] initWithBridge:bridge
                                                    moduleName:@"FoodInfo"
