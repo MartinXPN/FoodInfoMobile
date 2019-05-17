@@ -27,6 +27,16 @@
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.googleusercontent.apps.362734164228-b5ml5dkr1srehman8oksheivgajt7f89</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>fb170919443862665</string>
@@ -37,7 +47,7 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>com.googleusercontent.apps.362734164228-b5ml5dkr1srehman8oksheivgajt7f89</string>
+				<string>362734164228-b5ml5dkr1srehman8oksheivgajt7f89.apps.googleusercontent.com</string>
 			</array>
 		</dict>
 	</array>
@@ -70,7 +80,7 @@
 		</dict>
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string/>
+	<string></string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>AntDesign.ttf</string>
