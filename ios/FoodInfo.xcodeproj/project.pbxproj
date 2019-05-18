@@ -28,6 +28,7 @@
 		3493B27935F461F99B342377 /* libPods-FoodInfoTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B62332EE4E2FC98A1FFEE465 /* libPods-FoodInfoTests.a */; };
 		5B2E14F1228487F40012F43F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B2E14F0228487F40012F43F /* Images.xcassets */; };
 		5B9DF302228F576B002170B6 /* libSplashScreen.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BB8E15B2284547200A737A2 /* libSplashScreen.a */; };
+		5BAD8A202290AD6800C04E28 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5BAD8A1F2290AD6800C04E28 /* GoogleService-Info.plist */; };
 		5BFC1F0C228E16EF0008DD3C /* libRNGoogleSignin.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B3DFF5C228D439500206208 /* libRNGoogleSignin.a */; };
 		5BFC1F11228E17840008DD3C /* libRNFirebase.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B3DFF49228D439500206208 /* libRNFirebase.a */; };
 		5BFC1F13228E17840008DD3C /* libRNGestureHandler.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B3DFF4D228D439500206208 /* libRNGestureHandler.a */; };
@@ -41,7 +42,6 @@
 		5BFC1F21228E184B0008DD3C /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		5BFC1F22228E18530008DD3C /* libRCTVibration.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302E41ABCB9EE00DB3ED1 /* libRCTVibration.a */; };
 		5BFC1F23228E185B0008DD3C /* libRCTWebSocket.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 139FDEF41B06529B00C62182 /* libRCTWebSocket.a */; };
-		5BFC205D228E23C90008DD3C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5B3DFF60228D47CF00206208 /* GoogleService-Info.plist */; };
 		6145F4579E508E83C3950F1B /* libPods-FoodInfo-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FDFB9D8CAE179D496E218F7C /* libPods-FoodInfo-tvOSTests.a */; };
 /* End PBXBuildFile section */
 
@@ -418,7 +418,7 @@
 		51E854A3C0404B15BAE9F319 /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
 		56D2D0034FD64230B5758CE5 /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/native-base/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
 		5B2E14F0228487F40012F43F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ../../TemporaryApp/TemporaryApp/Images.xcassets; sourceTree = "<group>"; };
-		5B3DFF60228D47CF00206208 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		5BAD8A1F2290AD6800C04E28 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "FoodInfo/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
 		60C15BE3A591411486BF353D /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/native-base/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
@@ -605,7 +605,7 @@
 		13B07FAE1A68108700A75B9A /* FoodInfo */ = {
 			isa = PBXGroup;
 			children = (
-				5B3DFF60228D47CF00206208 /* GoogleService-Info.plist */,
+				5BAD8A1F2290AD6800C04E28 /* GoogleService-Info.plist */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -1360,9 +1360,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5BFC205D228E23C90008DD3C /* GoogleService-Info.plist in Resources */,
 				5B2E14F1228487F40012F43F /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
+				5BAD8A202290AD6800C04E28 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
