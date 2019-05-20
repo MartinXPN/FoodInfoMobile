@@ -44,7 +44,6 @@ export default class App extends Component<Props, State> {
 
     componentDidMount(): void {
         SplashScreen.hide();
-        console.log(typeof this.props.navigation);
         // this.props.navigation.navigate('Login');
 
         const unsubscribe = firebase.auth().onAuthStateChanged((user) => {
