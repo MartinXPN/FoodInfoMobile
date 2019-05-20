@@ -2,6 +2,8 @@ import React, {Component} from "react";
 import {Image, StyleSheet, Text, TouchableOpacity, View} from "react-native";
 import {facebookLogin} from "./facebook";
 import {googleLogin} from "./google";
+// @ts-ignore
+import Autolink from 'react-native-autolink';
 
 
 interface Props {
@@ -41,12 +43,18 @@ export default class Login extends Component<Props, State> {
         return (
             <View style={styles.container}>
 
+                <Image
+                    style={styles.appIcon}
+                    source={require('../../res/images/app-icon.png')}/>
+
+
                 {this.state.authError &&
                 <View>
                     <Text>Authentication Error!</Text>
                     <Text>Please try again</Text>
                 </View>
                 }
+
 
 
                 <TouchableOpacity
@@ -68,8 +76,14 @@ export default class Login extends Component<Props, State> {
                         style={styles.providerIcon}
                         source={require('../../res/images/google.png')}/>
 
-                    <Text style={{fontWeight: "bold", color: '#212121'}}>Sign in with Google</Text>
+                    <Text style={{fontWeight: "bold", color: '#2e2e2e'}}>Sign in with Google</Text>
                 </TouchableOpacity>
+
+
+                <Autolink
+                    style={{color: '#2e2e2e', textAlign: 'center'}}
+                    text="By continuing, you are indicating that you accept our Terms of Service and Privacy Policy"
+                />
             </View>
         );
     }
@@ -78,9 +92,19 @@ export default class Login extends Component<Props, State> {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'center',
+        flexDirection: 'column',
+        justifyContent: 'flex-end',
         alignItems: 'center',
         backgroundColor: '#FFFFFF',
+        paddingLeft: 25,
+        paddingRight: 25,
+        paddingBottom: 64,
+    },
+    appIcon: {
+        marginBottom: 250,
+        height: 100,
+        width: 100,
+        resizeMode: 'contain',
     },
     providerIcon: {
         paddingLeft: 24,
@@ -91,7 +115,7 @@ const styles = StyleSheet.create({
         resizeMode: 'contain',
     },
     loginButton: {
-        alignItems: 'center', // flex-start
+        alignItems: 'center',
         flexDirection: 'row',
 
         width: 312,
@@ -102,8 +126,8 @@ const styles = StyleSheet.create({
         shadowColor: '#000000',
         shadowOpacity: 0.2,
         elevation: 4,
-        shadowRadius: 2 ,
-        shadowOffset : { width: 1, height: 2},
+        shadowRadius: 2,
+        shadowOffset: {width: 1, height: 2},
 
         borderRadius: 3,
         borderWidth: 1,
