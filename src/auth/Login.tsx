@@ -1,9 +1,9 @@
 import React, {Component} from "react";
-import {StyleSheet, Text, View} from "react-native";
-import {Button} from 'native-base';
+import {Image, StyleSheet, Text, TouchableOpacity, View} from "react-native";
 import {facebookLogin} from "./facebook";
 import {googleLogin} from "./google";
-import {GoogleSigninButton} from "react-native-google-signin";
+// @ts-ignore
+import Autolink from 'react-native-autolink';
 
 
 interface Props {
@@ -43,6 +43,11 @@ export default class Login extends Component<Props, State> {
         return (
             <View style={styles.container}>
 
+                <Image
+                    style={styles.appIcon}
+                    source={require('../../res/images/app-icon.png')}/>
+
+
                 {this.state.authError &&
                 <View>
                     <Text>Authentication Error!</Text>
@@ -51,18 +56,34 @@ export default class Login extends Component<Props, State> {
                 }
 
 
-                <Button
-                    style={styles.fbButton}
-                    onPress={() => this.authenticate(facebookLogin)}>
-                    <Text style={{fontWeight: "bold", color: '#FFFFFF'}}>Sign in with Facebook</Text>
-                </Button>
 
-                <GoogleSigninButton
-                    style={styles.googleButton}
-                    size={GoogleSigninButton.Size.Wide}
-                    color={GoogleSigninButton.Color.Light}
-                    onPress={() => this.authenticate(googleLogin)}
-                    disabled={this.state.signInInProgress}/>
+                <TouchableOpacity
+                    style={[styles.loginButton, styles.fbButton]}
+                    activeOpacity={0.5}
+                    onPress={() => this.authenticate(facebookLogin)}>
+                    <Image
+                        style={styles.providerIcon}
+                        source={require('../../res/images/fb.png')}/>
+
+                    <Text style={{fontWeight: "bold", color: '#ffffff'}}>Sign in with Facebook</Text>
+                </TouchableOpacity>
+
+                <TouchableOpacity
+                    style={[styles.loginButton, styles.googleButton]}
+                    activeOpacity={0.5}
+                    onPress={() => this.authenticate(googleLogin)}>
+                    <Image
+                        style={styles.providerIcon}
+                        source={require('../../res/images/google.png')}/>
+
+                    <Text style={{fontWeight: "bold", color: '#2e2e2e'}}>Sign in with Google</Text>
+                </TouchableOpacity>
+
+
+                <Autolink
+                    style={{color: '#2e2e2e', textAlign: 'center'}}
+                    text="By continuing, you are indicating that you accept our Terms of Service and Privacy Policy"
+                />
             </View>
         );
     }
@@ -71,25 +92,48 @@ export default class Login extends Component<Props, State> {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'center',
+        flexDirection: 'column',
+        justifyContent: 'flex-end',
         alignItems: 'center',
         backgroundColor: '#FFFFFF',
+        paddingLeft: 25,
+        paddingRight: 25,
+        paddingBottom: 64,
     },
-    googleButton: {
+    appIcon: {
+        marginBottom: 250,
+        height: 100,
+        width: 100,
+        resizeMode: 'contain',
+    },
+    providerIcon: {
+        paddingLeft: 24,
+        paddingRight: 24,
+        margin: 5,
+        height: 25,
+        width: 25,
+        resizeMode: 'contain',
+    },
+    loginButton: {
+        alignItems: 'center',
+        flexDirection: 'row',
+
         width: 312,
         height: 48,
-    },
-    fbButton: {
-        width: 306,
-        height: 45,
         margin: 8,
+
+        backgroundColor: '#FFFFFF',
+        shadowColor: '#000000',
+        shadowOpacity: 0.2,
+        elevation: 4,
+        shadowRadius: 2,
+        shadowOffset: {width: 1, height: 2},
+
         borderRadius: 3,
-        padding: 8,
-        backgroundColor: '#3A5997',
-        shadowColor: '#000',
-        shadowOffset: {width: 0, height: 1},
-        shadowOpacity: 0.5,
-        shadowRadius: 1,
-        elevation: 1,
-    }
+        borderWidth: 1,
+        borderColor: '#cdcdcd'
+    },
+
+    fbButton: {backgroundColor: '#3A5997'},
+    googleButton: {backgroundColor: '#FFFFFF'},
 });
