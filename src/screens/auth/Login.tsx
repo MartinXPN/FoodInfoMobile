@@ -1,7 +1,7 @@
 import React, {Component} from "react";
-import {Image, StyleSheet, Text, TouchableOpacity, View} from "react-native";
-import {facebookLogin} from "./facebook";
-import {googleLogin} from "./google";
+import {Image, StatusBar, StyleSheet, Text, TouchableOpacity, View} from "react-native";
+import {facebookLogin} from "../../api/auth/facebook";
+import {googleLogin} from "../../api/auth/google";
 import HyperlinkedText from 'react-native-hyperlinked-text';
 
 interface Props {
@@ -40,10 +40,11 @@ export default class Login extends Component<Props, State> {
     render() {
         return (
             <View style={styles.container}>
+                <StatusBar barStyle="dark-content" backgroundColor="#FFFFFF"/>
 
                 <Image
                     style={styles.appIcon}
-                    source={require('../../res/images/app-icon.png')}/>
+                    source={require('../../../res/images/app-icon.png')}/>
 
 
                 {this.state.authError &&
@@ -61,7 +62,7 @@ export default class Login extends Component<Props, State> {
                     onPress={() => this.authenticate(facebookLogin)}>
                     <Image
                         style={styles.providerIcon}
-                        source={require('../../res/images/fb.png')}/>
+                        source={require('../../../res/images/fb.png')}/>
 
                     <Text style={{fontWeight: "bold", color: '#ffffff'}}>Sign in with Facebook</Text>
                 </TouchableOpacity>
@@ -72,7 +73,7 @@ export default class Login extends Component<Props, State> {
                     onPress={() => this.authenticate(googleLogin)}>
                     <Image
                         style={styles.providerIcon}
-                        source={require('../../res/images/google.png')}/>
+                        source={require('../../../res/images/google.png')}/>
 
                     <Text style={{fontWeight: "bold", color: '#2e2e2e'}}>Sign in with Google</Text>
                 </TouchableOpacity>
