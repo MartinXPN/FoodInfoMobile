@@ -92,17 +92,17 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#4F6D7A',
+        backgroundColor: '#FFFFFF',
     },
     welcome: {
         fontSize: 20,
         textAlign: 'center',
         margin: 10,
-        color: '#F5FCFF',
+        color: '#212121',
     },
     instructions: {
         textAlign: 'center',
-        color: '#F5FCFF',
+        color: '#212121',
         marginBottom: 5,
     },
 });

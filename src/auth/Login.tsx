@@ -1,10 +1,9 @@
 import React, {Component} from "react";
-import {StyleSheet, Text, TouchableOpacity, View} from "react-native";
-import { Button} from 'native-base';
+import {StyleSheet, Text, View} from "react-native";
+import {Button} from 'native-base';
 import {facebookLogin} from "./facebook";
 import {googleLogin} from "./google";
 import {GoogleSigninButton} from "react-native-google-signin";
-import {LoginButton} from "react-native-fbsdk";
 
 
 interface Props {
@@ -54,13 +53,12 @@ export default class Login extends Component<Props, State> {
 
                 <Button
                     style={styles.fbButton}
-                    textStyle={{color: '#fff'}}
                     onPress={() => this.authenticate(facebookLogin)}>
-                    <Text>Sign in with Facebook</Text>
+                    <Text style={{fontWeight: "bold", color: '#FFFFFF'}}>Sign in with Facebook</Text>
                 </Button>
 
                 <GoogleSigninButton
-                    style={{width: 312, height: 48}}
+                    style={styles.googleButton}
                     size={GoogleSigninButton.Size.Wide}
                     color={GoogleSigninButton.Color.Light}
                     onPress={() => this.authenticate(googleLogin)}
@@ -75,11 +73,23 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#4F6D7A',
+        backgroundColor: '#FFFFFF',
     },
-    fbButton: {
+    googleButton: {
         width: 312,
         height: 48,
+    },
+    fbButton: {
+        width: 306,
+        height: 45,
+        margin: 8,
+        borderRadius: 3,
+        padding: 8,
         backgroundColor: '#3A5997',
+        shadowColor: '#000',
+        shadowOffset: {width: 0, height: 1},
+        shadowOpacity: 0.5,
+        shadowRadius: 1,
+        elevation: 1,
     }
 });
