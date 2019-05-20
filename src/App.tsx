@@ -69,7 +69,7 @@ export default class App extends Component<Props, State> {
         if (this.state.currentUser)
             return (
                 <View style={styles.container}>
-                    <StatusBar barStyle="light-content" backgroundColor="#4F6D7A"/>
+                    <StatusBar barStyle="dark-content" backgroundColor="#FFFFFF"/>
                     <Text style={styles.welcome}>Welcome to React Native!</Text>
                     <Text style={styles.instructions}>To get started, edit App.tsx</Text>
                     <Text style={styles.instructions}>{instructions}</Text>
@@ -80,7 +80,7 @@ export default class App extends Component<Props, State> {
         return (
             // <AppContainer />
             <View style={styles.container}>
-                <StatusBar barStyle="light-content" backgroundColor="#4F6D7A"/>
+                <StatusBar barStyle="dark-content" backgroundColor="#FFFFFF"/>
                 <Login/>
             </View>
         );

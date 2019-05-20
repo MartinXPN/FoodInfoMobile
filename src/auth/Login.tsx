@@ -1,9 +1,7 @@
 import React, {Component} from "react";
-import {StyleSheet, Text, View} from "react-native";
-import {Button} from 'native-base';
+import {Image, StyleSheet, Text, TouchableOpacity, View} from "react-native";
 import {facebookLogin} from "./facebook";
 import {googleLogin} from "./google";
-import {GoogleSigninButton} from "react-native-google-signin";
 
 
 interface Props {
@@ -51,18 +49,27 @@ export default class Login extends Component<Props, State> {
                 }
 
 
-                <Button
-                    style={styles.fbButton}
+                <TouchableOpacity
+                    style={[styles.loginButton, styles.fbButton]}
+                    activeOpacity={0.5}
                     onPress={() => this.authenticate(facebookLogin)}>
-                    <Text style={{fontWeight: "bold", color: '#FFFFFF'}}>Sign in with Facebook</Text>
-                </Button>
+                    <Image
+                        style={styles.providerIcon}
+                        source={require('../../res/images/fb.png')}/>
 
-                <GoogleSigninButton
-                    style={styles.googleButton}
-                    size={GoogleSigninButton.Size.Wide}
-                    color={GoogleSigninButton.Color.Light}
-                    onPress={() => this.authenticate(googleLogin)}
-                    disabled={this.state.signInInProgress}/>
+                    <Text style={{fontWeight: "bold", color: '#ffffff'}}>Sign in with Facebook</Text>
+                </TouchableOpacity>
+
+                <TouchableOpacity
+                    style={[styles.loginButton, styles.googleButton]}
+                    activeOpacity={0.5}
+                    onPress={() => this.authenticate(googleLogin)}>
+                    <Image
+                        style={styles.providerIcon}
+                        source={require('../../res/images/google.png')}/>
+
+                    <Text style={{fontWeight: "bold", color: '#212121'}}>Sign in with Google</Text>
+                </TouchableOpacity>
             </View>
         );
     }
@@ -75,21 +82,34 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         backgroundColor: '#FFFFFF',
     },
-    googleButton: {
+    providerIcon: {
+        paddingLeft: 24,
+        paddingRight: 24,
+        margin: 5,
+        height: 25,
+        width: 25,
+        resizeMode: 'contain',
+    },
+    loginButton: {
+        alignItems: 'center', // flex-start
+        flexDirection: 'row',
+
         width: 312,
         height: 48,
-    },
-    fbButton: {
-        width: 306,
-        height: 45,
         margin: 8,
+
+        backgroundColor: '#FFFFFF',
+        shadowColor: '#000000',
+        shadowOpacity: 0.2,
+        elevation: 4,
+        shadowRadius: 2 ,
+        shadowOffset : { width: 1, height: 2},
+
         borderRadius: 3,
-        padding: 8,
-        backgroundColor: '#3A5997',
-        shadowColor: '#000',
-        shadowOffset: {width: 0, height: 1},
-        shadowOpacity: 0.5,
-        shadowRadius: 1,
-        elevation: 1,
-    }
+        borderWidth: 1,
+        borderColor: '#cdcdcd'
+    },
+
+    fbButton: {backgroundColor: '#3A5997'},
+    googleButton: {backgroundColor: '#FFFFFF'},
 });

@@ -31,6 +31,7 @@ project.xcworkspace
 
 # Android/IntelliJ
 #
+*.aab
 build/
 .idea
 .gradle
