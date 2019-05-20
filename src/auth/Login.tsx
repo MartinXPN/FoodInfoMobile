@@ -2,9 +2,7 @@ import React, {Component} from "react";
 import {Image, StyleSheet, Text, TouchableOpacity, View} from "react-native";
 import {facebookLogin} from "./facebook";
 import {googleLogin} from "./google";
-// @ts-ignore
-import Autolink from 'react-native-autolink';
-
+import HyperlinkedText from 'react-native-hyperlinked-text';
 
 interface Props {
 }
@@ -49,10 +47,10 @@ export default class Login extends Component<Props, State> {
 
 
                 {this.state.authError &&
-                <View>
-                    <Text>Authentication Error!</Text>
-                    <Text>Please try again</Text>
-                </View>
+                <Text style={{color: 'red', textAlign: 'center'}}>
+                    Authentication Error!
+                    Please try again
+                </Text>
                 }
 
 
@@ -80,10 +78,18 @@ export default class Login extends Component<Props, State> {
                 </TouchableOpacity>
 
 
-                <Autolink
+                <HyperlinkedText
                     style={{color: '#2e2e2e', textAlign: 'center'}}
-                    text="By continuing, you are indicating that you accept our Terms of Service and Privacy Policy"
-                />
+                    linkDefs={[
+                        {
+                            regex: /\[(.*?)\]\((.*?)\)/mgi,
+                            style: {color: 'blue'},
+                            replaceText: (orig, text, url) => text,
+                            onPress: (orig, text, url) => HyperlinkedText._openWebUrl(url)
+                        }
+                    ]}>
+                    By continuing, you are indicating that you accept our [Terms of Service](https://martinxpn.github.io/FoodInfoMobile/terms_and_conditions) and [Privacy Policy](https://martinxpn.github.io/FoodInfoMobile/privacy_policy)
+                </HyperlinkedText>
             </View>
         );
     }
