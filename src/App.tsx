@@ -12,9 +12,10 @@ import React, {Component} from 'react';
 import {Button, Platform, StatusBar, StyleSheet, Text, View} from 'react-native';
 import SplashScreen from 'react-native-splash-screen';
 import {NavigationScreenProp} from "react-navigation";
-import Login from "./auth/Login";
+import Login from "./screens/auth/Login";
 // @ts-ignore
 import firebase, {User} from "react-native-firebase";
+import Main from "./screens/main/Main";
 
 
 const instructions = Platform.select({
@@ -61,29 +62,11 @@ export default class App extends Component<Props, State> {
         }
     }
 
-    signOut = async () => {
-        await firebase.auth().signOut();
-    };
-
     render() {
         if (this.state.currentUser)
-            return (
-                <View style={styles.container}>
-                    <StatusBar barStyle="dark-content" backgroundColor="#FFFFFF"/>
-                    <Text style={styles.welcome}>Welcome to React Native!</Text>
-                    <Text style={styles.instructions}>To get started, edit App.tsx</Text>
-                    <Text style={styles.instructions}>{instructions}</Text>
-                    <Button title={'Sign Out'} onPress={this.signOut}/>
-                </View>
-            );
+            return (<Main />);
 
-        return (
-            // <AppContainer />
-            <View style={styles.container}>
-                <StatusBar barStyle="dark-content" backgroundColor="#FFFFFF"/>
-                <Login/>
-            </View>
-        );
+        return (<Login/>);
     }
 }
 
