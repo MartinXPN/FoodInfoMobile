@@ -1,5 +1,6 @@
 package com.foodinfo;
 
+import android.annotation.SuppressLint;
 import android.app.Application;
 
 import com.facebook.CallbackManager;
@@ -12,6 +13,7 @@ import com.facebook.reactnative.androidsdk.FBSDKPackage;
 import co.apptailor.googlesignin.RNGoogleSigninPackage;
 import io.invertase.firebase.RNFirebasePackage;
 import io.invertase.firebase.auth.RNFirebaseAuthPackage;
+import io.invertase.firebase.storage.RNFirebaseStoragePackage;
 
 import org.devio.rn.splashscreen.SplashScreenReactPackage;
 import com.facebook.react.ReactNativeHost;
@@ -21,6 +23,7 @@ import com.facebook.soloader.SoLoader;
 
 import java.util.Arrays;
 import java.util.List;
+
 
 public class MainApplication extends Application implements ReactApplication {
 
@@ -36,6 +39,7 @@ public class MainApplication extends Application implements ReactApplication {
       return BuildConfig.DEBUG;
     }
 
+    @SuppressLint("MissingPermission")
     @Override
     protected List<ReactPackage> getPackages() {
       return Arrays.asList(
@@ -47,6 +51,7 @@ public class MainApplication extends Application implements ReactApplication {
             new RNGoogleSigninPackage(),
             new RNFirebasePackage(),
             new RNFirebaseAuthPackage(),
+            new RNFirebaseStoragePackage(),
             new SplashScreenReactPackage()
       );
     }
