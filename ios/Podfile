@@ -25,6 +25,8 @@ target 'FoodInfo' do
   pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
   pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
+  pod 'react-native-camera', path: '../node_modules/react-native-camera'
+
 
   # FBSDK
   pod 'react-native-fbsdk', :path => '../node_modules/react-native-fbsdk'
@@ -42,6 +44,8 @@ target 'FoodInfo' do
   target 'FoodInfo-tvOSTests' do
     inherit! :search_paths
     # Pods for testing
+    pod 'react-native-camera', :path => '../node_modules/react-native-camera'
+
   end
 
   target 'FoodInfoTests' do
