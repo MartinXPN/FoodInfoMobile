@@ -1,19 +1,25 @@
 import React, {Component} from 'react';
 import {StatusBar, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {RNCamera} from "react-native-camera";
+import {NavigationInjectedProps} from "react-navigation";
 
 
-interface Props {
-}
+type Props = NavigationInjectedProps;
+
 
 interface State {
+    focusedScreen: boolean,
 }
 
 export default class Camera extends Component<Props, State> {
 
+    state: State = {
+        focusedScreen: false,
+    };
+
     private camera: RNCamera | null = null;
 
-    takePicture = async function() {
+    takePicture = async () => {
         if (this.camera) {
             const options = { quality: 0.5, base64: true };
             const data = await this.camera.takePictureAsync(options);
@@ -21,27 +27,31 @@ export default class Camera extends Component<Props, State> {
         }
     };
 
+    componentDidMount(): void {
+        const { navigation } = this.props;
+        navigation.addListener('willFocus', () =>
+            this.setState({ focusedScreen: true })
+        );
+        navigation.addListener('willBlur', () =>
+            this.setState({ focusedScreen: false })
+        );
+    }
 
-    render() {
+    cameraView = () => {
         return (
             <View style={styles.container}>
-                <StatusBar barStyle="light-content" backgroundColor="#FFFFFFFF"/>
+                <StatusBar barStyle="dark-content" backgroundColor="#FFFFFFFF"/>
                 <RNCamera
                     ref={ref => {
                         this.camera = ref;
                     }}
                     style={styles.preview}
+                    captureAudio={false}
                     type={RNCamera.Constants.Type.back}
                     flashMode={RNCamera.Constants.FlashMode.on}
                     androidCameraPermissionOptions={{
                         title: 'Permission to use camera',
                         message: 'We need your permission to use your camera',
-                        buttonPositive: 'Ok',
-                        buttonNegative: 'Cancel',
-                    }}
-                    androidRecordAudioPermissionOptions={{
-                        title: 'Permission to use audio recording',
-                        message: 'We need your permission to use your audio',
                         buttonPositive: 'Ok',
                         buttonNegative: 'Cancel',
                     }}
@@ -58,6 +68,17 @@ export default class Camera extends Component<Props, State> {
 
             </View>
         );
+    };
+
+
+    render() {
+        const { focusedScreen } = this.state;
+
+        if (focusedScreen){
+            return (this.cameraView());
+        } else {
+            return <View />;
+        }
     }
 }
 

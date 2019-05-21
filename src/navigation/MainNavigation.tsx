@@ -12,27 +12,21 @@ const MainScreenNavigator = createBottomTabNavigator({
         screen: Home,
         navigationOptions: {
             tabBarLabel: 'Home',
-            tabBarIcon: ({ tintColor, focused }) => (
-                <Icon name="home" color={tintColor} size={25}/>
-            )
+            tabBarIcon: ({ tintColor, focused }) => (<Icon name="home" color={tintColor} size={25}/>)
         }
     },
     Diets: {
         screen: Diets,
             navigationOptions: {
             tabBarLabel: 'Diets',
-                tabBarIcon: ({ tintColor, focused }) => (
-                <Icon name="list" color={tintColor} size={25}/>
-        )
+            tabBarIcon: ({ tintColor, focused }) => (<Icon name="list" color={tintColor} size={25}/>)
         }
     },
     Profile: {
         screen: Profile,
             navigationOptions: {
             tabBarLabel: 'Profile',
-                tabBarIcon: ({ tintColor, focused }) => (
-                <Icon name="person" color={tintColor} size={25}/>
-        )
+            tabBarIcon: ({ tintColor, focused }) => (<Icon name="person" color={tintColor} size={25}/>)
         }
     },
 },
