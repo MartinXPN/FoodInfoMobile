@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import {StatusBar, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {RNCamera} from "react-native-camera";
 import {NavigationInjectedProps} from "react-navigation";
+import {upload} from "../../api/image/ImageStorage";
+import firebase from "react-native-firebase";
 
 
 type Props = NavigationInjectedProps;
@@ -24,6 +26,9 @@ export default class Camera extends Component<Props, State> {
             const options = { quality: 0.5, base64: true };
             const data = await this.camera.takePictureAsync(options);
             console.log(data.uri);
+
+            const downloadUrl = await upload(firebase.auth().currentUser, data.uri);
+            console.log(downloadUrl);
         }
     };
 
