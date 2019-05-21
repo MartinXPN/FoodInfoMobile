@@ -92,6 +92,14 @@ PODS:
   - nanopb/encode (0.3.901)
   - React (0.59.8):
     - React/Core (= 0.59.8)
+  - react-native-camera (2.9.0):
+    - React
+    - react-native-camera/RCT (= 2.9.0)
+    - react-native-camera/RN (= 2.9.0)
+  - react-native-camera/RCT (2.9.0):
+    - React
+  - react-native-camera/RN (2.9.0):
+    - React
   - react-native-fbsdk (0.8.0):
     - React
     - react-native-fbsdk/Core (= 0.8.0)
@@ -160,6 +168,7 @@ DEPENDENCIES:
   - Folly (from `../node_modules/react-native/third-party-podspecs/Folly.podspec`)
   - glog (from `../node_modules/react-native/third-party-podspecs/glog.podspec`)
   - GoogleSignIn (~> 4.4.0)
+  - react-native-camera (from `../node_modules/react-native-camera`)
   - react-native-fbsdk (from `../node_modules/react-native-fbsdk`)
   - React/Core (from `../node_modules/react-native`)
   - React/CxxBridge (from `../node_modules/react-native`)
@@ -200,6 +209,8 @@ EXTERNAL SOURCES:
     :podspec: "../node_modules/react-native/third-party-podspecs/glog.podspec"
   React:
     :path: "../node_modules/react-native"
+  react-native-camera:
+    :path: "../node_modules/react-native-camera"
   react-native-fbsdk:
     :path: "../node_modules/react-native-fbsdk"
   RNVectorIcons:
@@ -229,10 +240,11 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: 61bb0f61a4cb560030f1222021178008a5727a23
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   React: 76e6aa2b87d05eb6cccb6926d72685c9a07df152
+  react-native-camera: 571e4cfe70e7021e9077c1699a53e659db971f96
   react-native-fbsdk: 5c3ff4dda057e17d3b4b5491033fc653d423e71d
   RNVectorIcons: 6607bd3a30291d0edb56f9bbe7ae411ee2b928b0
   yoga: 92b2102c3d373d1a790db4ab761d2b0ffc634f64
 
-PODFILE CHECKSUM: 263e1e072f2974d92d71e06264b6a50195a5405e
+PODFILE CHECKSUM: 1d32e556845f4f633707a462c0c872c1368a6170
 
 COCOAPODS: 1.6.2

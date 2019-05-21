@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* FoodInfoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* FoodInfoTests.m */; };
 		133E29F31AD74F7200F7D852 /* libRCTLinking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C398B91ACF4ADC00677621 /* libRCTLinking.a */; };
@@ -27,6 +26,7 @@
 		2DF0FFEE2056DD460020B375 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3EA31DF850E9000B6D8A /* libReact.a */; };
 		3493B27935F461F99B342377 /* libPods-FoodInfoTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B62332EE4E2FC98A1FFEE465 /* libPods-FoodInfoTests.a */; };
 		5B2E14F1228487F40012F43F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B2E14F0228487F40012F43F /* Images.xcassets */; };
+		5B7D696222941BD50037A7B8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
 		5B9DF302228F576B002170B6 /* libSplashScreen.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BB8E15B2284547200A737A2 /* libSplashScreen.a */; };
 		5BAD8A202290AD6800C04E28 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5BAD8A1F2290AD6800C04E28 /* GoogleService-Info.plist */; };
 		5BFC1F0C228E16EF0008DD3C /* libRNGoogleSignin.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B3DFF5C228D439500206208 /* libRNGoogleSignin.a */; };
@@ -468,6 +468,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B7D696222941BD50037A7B8 /* libRCTAnimation.a in Frameworks */,
 				5B9DF302228F576B002170B6 /* libSplashScreen.a in Frameworks */,
 				5BFC1F23228E185B0008DD3C /* libRCTWebSocket.a in Frameworks */,
 				5BFC1F22228E18530008DD3C /* libRCTVibration.a in Frameworks */,

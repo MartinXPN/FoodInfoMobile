@@ -115,5 +115,11 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>NSCameraUsageDescription</key>
+	<string>FoodInfo needs the camera to analyse food images</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Save images of your dishes to share them with your friends</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Save images of your dishes to share them with your friends</string>
 </dict>
 </plist>

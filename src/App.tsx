@@ -9,13 +9,13 @@
  */
 
 import React, {Component} from 'react';
-import {Button, Platform, StatusBar, StyleSheet, Text, View} from 'react-native';
+import {Platform, StyleSheet} from 'react-native';
 import SplashScreen from 'react-native-splash-screen';
 import {NavigationScreenProp} from "react-navigation";
 import Login from "./screens/auth/Login";
+import Main from "./screens/main/Main";
 // @ts-ignore
 import firebase, {User} from "react-native-firebase";
-import Main from "./screens/main/Main";
 
 
 const instructions = Platform.select({
