@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import {Image, StatusBar, StyleSheet, Text, TouchableOpacity, View} from "react-native";
-import {facebookLogin} from "../../api/auth/facebook";
-import {googleLogin} from "../../api/auth/google";
+import {facebookLogin} from "../../api/auth/Facebook";
+import {googleLogin} from "../../api/auth/Ggoogle";
 import HyperlinkedText from 'react-native-hyperlinked-text';
 
 interface Props {
