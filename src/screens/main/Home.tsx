@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
-import {StyleSheet, Text, View} from 'react-native';
-// @ts-ignore
+import {StatusBar, StyleSheet, Text, View} from 'react-native';
 
 
 interface Props {
@@ -14,6 +13,7 @@ export default class Home extends Component<Props, State> {
     render() {
         return (
             <View style={styles.container}>
+                <StatusBar barStyle="dark-content" backgroundColor="#FFFFFF"/>
                 <Text style={styles.welcome}>Welcome to FoodInfo!</Text>
                 <Text style={styles.instructions}>All the pictures of your dishes appear here</Text>
                 <Text style={styles.instructions}>To get started, snap your dish</Text>

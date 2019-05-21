@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {StatusBar, StyleSheet, Text, View} from 'react-native';
-// @ts-ignore
 
 
 interface Props {
@@ -14,6 +13,7 @@ export default class Diets extends Component<Props, State> {
     render() {
         return (
             <View style={styles.container}>
+                <StatusBar barStyle="dark-content" backgroundColor="#FFFFFF"/>
                 <Text style={styles.welcome}>Diets screen!</Text>
                 <Text style={styles.instructions}>All the diets you are following are going to appear here</Text>
                 <Text style={styles.instructions}>To get started, select some diets that you wish to follow</Text>

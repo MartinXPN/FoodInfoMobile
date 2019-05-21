@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import {Button, Platform, StatusBar, StyleSheet, Text, View} from 'react-native';
 // @ts-ignore
 import firebase, {User} from "react-native-firebase";
-import Home from "./Home";
 import MainContainer from "../../navigation/MainNavigation";
 
 

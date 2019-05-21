@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {Button, StatusBar, StyleSheet, Text, View} from 'react-native';
 import firebase from "react-native-firebase";
-// @ts-ignore
 
 
 interface Props {
@@ -19,6 +18,7 @@ export default class Profile extends Component<Props, State> {
     render() {
         return (
             <View style={styles.container}>
+                <StatusBar barStyle="dark-content" backgroundColor="#FFFFFF"/>
                 <Text style={styles.welcome}>Profile screen</Text>
                 <Text style={styles.instructions}>All the profile preferences and public info is shown here</Text>
                 <Text style={styles.instructions}>You may sign out any time you want</Text>
